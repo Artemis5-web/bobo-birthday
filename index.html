@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Bobo ❤️</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&family=Pacifico&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+
+  <!-- CONFETTI + HEARTS OVERLAYS -->
+  <div id="confetti-container"></div>
+  <div id="hearts-container"></div>
+
+  <!-- ================= 1. WELCOME ================= -->
+  <section class="page welcome active">
+    <div class="welcome-content">
+      <div class="chicken">🐔</div>
+      <p class="small-text">Hey Bobo... ❤️</p>
+      <h1>I have a little <span>surprise</span> for you...</h1>
+      <p class="instruction">Click the button below<br />to see what it is 👀</p>
+      <button class="main-button" onclick="nextPage()">🎁 Tap to Continue</button>
+    </div>
+  </section>
+
+  <!-- ================= 2. BIRTHDAY ================= -->
+  <section class="page birthday">
+    <div class="birthday-content">
+      <div class="crown">👑</div>
+      <p class="tiny">TODAY IS YOUR DAY ✨</p>
+      <h1>HAPPY<br />BIRTHDAY</h1>
+      <h2>BOBO! ❤️</h2>
+      <p>You are an amazing person<br />and you deserve all the happiness<br />in the world! 🥳</p>
+      <button class="main-button" onclick="nextPage()">There's more 👀</button>
+    </div>
+  </section>
+
+  <!-- ================= 3. CAKE ================= -->
+  <section class="page cake-page">
+    <div class="cake-content">
+      <p class="tiny">AND OF COURSE...</p>
+      <h1>Your Birthday Cake! 🎂</h1>
+      <div class="cake-wrapper">
+        <img src="cake.png" alt="Chicken birthday cake for Bobo" class="cake-image" />
+      </div>
+      <p class="cake-message">Because you're a chicken lover... 🐔❤️<br />Here's a cake just for you!</p>
+      <button class="main-button" onclick="nextPage()">Our memories 📸</button>
+    </div>
+  </section>
+
+  <!-- ================= 4. PHOTO GALLERY ("Our Memories") ================= -->
+  <section class="page gallery-page">
+    <div class="gallery-content">
+      <p class="tiny">A LITTLE WALK DOWN MEMORY LANE 📸</p>
+      <h1>Our Memories ❤️</h1>
+      <p class="gallery-intro">Every picture has a story...</p>
+
+      <div class="gallery">
+        <button class="gallery-arrow prev" onclick="previousPhoto()" aria-label="Previous photo">❮</button>
+
+        <div class="photo-viewer">
+          <img id="gallery-image" src="photos/photo1.jpg" alt="Bobo memory" />
+          <div class="photo-overlay">
+            <span id="photo-number">1 / 8</span>
+          </div>
+        </div>
+
+        <button class="gallery-arrow next" onclick="nextPhoto()" aria-label="Next photo">❯</button>
+      </div>
+
+      <div class="photo-caption">
+        <h2 id="photo-title">A beautiful memory ❤️</h2>
+        <p id="photo-description">One of those moments I'll always remember.</p>
+      </div>
+
+      <div class="thumbnails" id="thumbnails">
+        <button class="thumbnail active" onclick="showPhoto(0)"><img src="photos/photo1.jpg" alt="Memory 1" /></button>
+        <button class="thumbnail" onclick="showPhoto(1)"><img src="photos/photo2.jpg" alt="Memory 2" /></button>
+        <button class="thumbnail" onclick="showPhoto(2)"><img src="photos/photo3.jpg" alt="Memory 3" /></button>
+        <button class="thumbnail" onclick="showPhoto(3)"><img src="photos/photo4.jpg" alt="Memory 4" /></button>
+        <button class="thumbnail" onclick="showPhoto(4)"><img src="photos/photo5.jpg" alt="Memory 5" /></button>
+        <button class="thumbnail" onclick="showPhoto(5)"><img src="photos/photo6.jpg" alt="Memory 6" /></button>
+        <button class="thumbnail" onclick="showPhoto(6)"><img src="photos/photo7.jpg" alt="Memory 7" /></button>
+        <button class="thumbnail" onclick="showPhoto(7)"><img src="photos/photo8.jpg" alt="Memory 8" /></button>
+      </div>
+
+      <div class="gallery-progress">
+        <div id="gallery-progress-bar"></div>
+      </div>
+
+      <button class="main-button gallery-next-button" onclick="nextPage()">This one's special ❤️</button>
+    </div>
+  </section>
+
+  <!-- ================= 5. SPECIAL PHOTO ================= -->
+  <section class="page special-photo-page">
+    <div class="special-photo-content">
+      <p class="tiny">THIS ONE DESERVES ITS OWN PAGE ❤️</p>
+      <div class="special-photo-frame">
+        <img src="photos/photo5.jpg" alt="Special memory" />
+      </div>
+      <h1>This picture... 🥹❤️</h1>
+      <p>Sometimes a single picture can hold an entire memory.</p>
+      <button class="main-button" onclick="nextPage()">Now the crazy one 😂</button>
+    </div>
+  </section>
+
+  <!-- ================= 6. FUNNY MEMORY ================= -->
+  <section class="page funny-page">
+    <div class="funny-content">
+      <p class="tiny">WARNING ⚠️😂</p>
+      <h1>The Crazy Ones 🤣</h1>
+      <p>Because every bestie friendship needs a little madness.</p>
+      <div class="funny-photo">
+        <img src="photos/photo6.jpg" alt="Funny memory" />
+      </div>
+      <div class="speech-bubble">😂 Don't ask questions. Just enjoy the memories.</div>
+      <button class="main-button" onclick="nextPage()">Okay... now the serious part ❤️</button>
+    </div>
+  </section>
+
+  <!-- ================= 7. LETTER ================= -->
+  <section class="page letter-page">
+    <div class="letter">
+      <div class="letter-decoration">♡</div>
+      <p class="handwriting">Hey Bobo,</p>
+      <h1>A little message for you ❤️</h1>
+      <p>Today is all about celebrating you! 🎉</p>
+      <p>I just want to say thank you for being such an amazing person. You bring so much laughter, joy and positivity into my life.</p>
+      <p>I appreciate all the crazy moments, the deep conversations, the support, and all the memories we've made together.</p>
+      <p>I hope this new year of your life brings you happiness, success, good health, amazing opportunities and plenty of reasons to smile. ✨</p>
+      <p>Keep being the incredible person you are, and never forget that you have someone cheering for you. ❤️</p>
+      <p class="final-message">Happy Birthday once again, Bobo! 🎂🐔</p>
+      <p class="signature">— From your bestie ❤️</p>
+      <button class="main-button" onclick="nextPage()">One last surprise 🎁</button>
+    </div>
+  </section>
+
+  <!-- ================= 8. WISHES ================= -->
+  <section class="page wishes-page">
+    <div class="wishes-content">
+      <div class="gift">🎁</div>
+      <h1>Your Special Wishes</h1>
+      <p>Here's a little reminder of what I wish for you this year...</p>
+
+      <div class="wish-grid">
+        <div class="wish"><span>😊</span><strong>Happiness</strong></div>
+        <div class="wish"><span>📈</span><strong>Success</strong></div>
+        <div class="wish"><span>💚</span><strong>Good Health</strong></div>
+        <div class="wish"><span>⭐</span><strong>Amazing Opportunities</strong></div>
+        <div class="wish"><span>😂</span><strong>More Laughter</strong></div>
+        <div class="wish"><span>❤️</span><strong>All Your Dreams</strong></div>
+      </div>
+
+      <p class="shine">Keep shining, Bobo! ✨</p>
+      <button class="main-button" onclick="nextPage()">Finish the surprise ❤️</button>
+    </div>
+  </section>
+
+  <!-- ================= 9. FINAL ================= -->
+  <section class="page final-page">
+    <div class="final-content">
+      <div class="big-chicken">🐔</div>
+      <h1>Thank you<br />for being you!</h1>
+      <div class="heart-line">♡ ♡ ♡</div>
+      <button class="birthday-button" onclick="celebrate()">HAPPY BIRTHDAY, BOBO! 🎂❤️</button>
+      <p class="signature">— Your Bestie ❤️</p>
+    </div>
+  </section>
+
+  <!-- OPTIONAL MUSIC -->
+  <audio id="birthdayMusic" loop>
+    <source src="birthday.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,780 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Comfortaa", sans-serif;
+  overflow: hidden;
+  background: #fff5ec;
+  color: #351b12;
+}
+
+/* =========================================
+   PAGES
+========================================= */
+
+.page {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.05);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  padding: 25px;
+  overflow-y: auto;
+}
+
+.page.active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.main-button,
+.birthday-button {
+  border: none;
+  background: #ef4164;
+  color: white;
+  padding: 16px 28px;
+  border-radius: 40px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+
+.main-button:hover,
+.birthday-button:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+.main-button:active,
+.birthday-button:active {
+  transform: scale(0.95);
+}
+
+/* =========================================
+   1. WELCOME
+========================================= */
+
+.welcome {
+  background:
+    radial-gradient(circle at top right, #7a3e20, transparent 35%),
+    linear-gradient(135deg, #2b1207, #4a2411);
+  color: white;
+}
+
+.welcome-content {
+  max-width: 600px;
+}
+
+.chicken {
+  font-size: 110px;
+  animation: chickenBounce 2s infinite ease-in-out, floating 3s infinite ease-in-out;
+}
+
+@keyframes chickenBounce {
+  0%, 100% { transform: rotate(-4deg); }
+  50% { transform: rotate(4deg); }
+}
+
+@keyframes floating {
+  0%, 100% { margin-top: 0; }
+  50% { margin-top: -15px; }
+}
+
+.small-text {
+  font-family: "Pacifico", cursive;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.welcome h1 {
+  font-size: clamp(35px, 7vw, 65px);
+  line-height: 1.1;
+}
+
+.welcome h1 span {
+  color: #ffc928;
+}
+
+.instruction {
+  margin: 30px 0;
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+/* =========================================
+   2. BIRTHDAY
+========================================= */
+
+.birthday {
+  background:
+    radial-gradient(circle at 20% 20%, #ffd7df, transparent 25%),
+    radial-gradient(circle at 80% 70%, #ffe9b3, transparent 30%), #fffaf4;
+}
+
+.birthday-content {
+  max-width: 700px;
+}
+
+.crown {
+  font-size: 65px;
+  animation: crown 1.5s infinite alternate;
+}
+
+@keyframes crown {
+  from { transform: rotate(-8deg); }
+  to { transform: rotate(8deg); }
+}
+
+.tiny {
+  letter-spacing: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  margin: 20px;
+}
+
+.birthday h1 {
+  font-size: clamp(45px, 10vw, 90px);
+  line-height: 0.95;
+  color: #56321e;
+}
+
+.birthday h2 {
+  font-size: clamp(55px, 12vw, 110px);
+  color: #ed3154;
+  margin: 10px 0;
+  font-weight: 700;
+}
+
+.birthday p {
+  font-size: 18px;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+/* =========================================
+   3. CAKE
+========================================= */
+
+.cake-page {
+  background:
+    linear-gradient(rgba(35, 15, 5, 0.78), rgba(35, 15, 5, 0.88)),
+    url("cake.png");
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+.cake-content {
+  max-width: 900px;
+}
+
+.cake-page h1 {
+  font-size: clamp(30px, 6vw, 60px);
+  margin-bottom: 20px;
+}
+
+.cake-wrapper {
+  width: min(550px, 90vw);
+  margin: auto;
+}
+
+.cake-image {
+  width: 100%;
+  max-height: 55vh;
+  object-fit: contain;
+  border-radius: 25px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  animation: cakeAppear 1.2s ease;
+}
+
+@keyframes cakeAppear {
+  from { opacity: 0; transform: scale(0.7) rotate(-5deg); }
+  to { opacity: 1; transform: scale(1) rotate(0); }
+}
+
+.cake-message {
+  font-family: "Pacifico", cursive;
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 20px;
+}
+
+/* =========================================
+   4. PHOTO GALLERY
+========================================= */
+
+.gallery-page {
+  background:
+    radial-gradient(circle at 10% 10%, #ffd7df, transparent 30%),
+    radial-gradient(circle at 90% 90%, #ffe6a9, transparent 30%),
+    #fff8f2;
+  color: #351b12;
+}
+
+.gallery-content {
+  width: min(1000px, 95vw);
+  max-height: 95vh;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.gallery-content h1 {
+  font-family: "Pacifico", cursive;
+  color: #d83b59;
+  font-size: clamp(35px, 7vw, 60px);
+  margin-bottom: 5px;
+}
+
+.gallery-intro {
+  margin-bottom: 20px;
+}
+
+.gallery {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.photo-viewer {
+  position: relative;
+  width: min(700px, 75vw);
+  height: min(55vh, 520px);
+  background: #ffffff;
+  padding: 10px;
+  border-radius: 22px;
+  box-shadow: 0 20px 50px rgba(60, 25, 10, 0.2);
+  overflow: hidden;
+}
+
+.photo-viewer img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 15px;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.photo-viewer.slide-left img {
+  animation: slideLeft 0.45s ease;
+}
+
+.photo-viewer.slide-right img {
+  animation: slideRight 0.45s ease;
+}
+
+@keyframes slideLeft {
+  from { opacity: 0; transform: translateX(80px) scale(0.96); }
+  to { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+@keyframes slideRight {
+  from { opacity: 0; transform: translateX(-80px) scale(0.96); }
+  to { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+.photo-overlay {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.65);
+  color: white;
+  padding: 8px 13px;
+  border-radius: 20px;
+  font-size: 13px;
+  backdrop-filter: blur(5px);
+}
+
+.gallery-arrow {
+  width: 55px;
+  height: 55px;
+  border: none;
+  border-radius: 50%;
+  background: white;
+  color: #d83b59;
+  font-size: 25px;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(50, 20, 10, 0.15);
+  transition: 0.3s ease;
+  flex-shrink: 0;
+}
+
+.gallery-arrow:hover {
+  transform: scale(1.12);
+  background: #d83b59;
+  color: white;
+}
+
+.gallery-arrow:active {
+  transform: scale(0.9);
+}
+
+.photo-caption {
+  min-height: 90px;
+  margin: 15px auto;
+}
+
+.photo-caption h2 {
+  font-family: "Pacifico", cursive;
+  color: #d83b59;
+  font-size: clamp(20px, 4vw, 30px);
+  margin-bottom: 5px;
+}
+
+.photo-caption p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.thumbnails {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  max-width: 850px;
+  margin: 10px auto 15px;
+  overflow-x: auto;
+  padding: 8px;
+  scrollbar-width: thin;
+}
+
+.thumbnail {
+  width: 75px;
+  height: 60px;
+  padding: 3px;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  background: white;
+  cursor: pointer;
+  flex-shrink: 0;
+  opacity: 0.55;
+  transition: 0.3s ease;
+}
+
+.thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 7px;
+}
+
+.thumbnail:hover {
+  opacity: 1;
+  transform: translateY(-3px);
+}
+
+.thumbnail.active {
+  opacity: 1;
+  border-color: #d83b59;
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 5px 15px rgba(216, 59, 89, 0.3);
+}
+
+.gallery-progress {
+  width: min(700px, 80vw);
+  height: 5px;
+  background: #eadbd2;
+  border-radius: 10px;
+  margin: 10px auto 20px;
+  overflow: hidden;
+}
+
+#gallery-progress-bar {
+  height: 100%;
+  width: 12.5%;
+  background: #d83b59;
+  border-radius: 10px;
+  transition: width 0.4s ease;
+}
+
+/* =========================================
+   5. SPECIAL PHOTO
+========================================= */
+
+.special-photo-page {
+  background:
+    radial-gradient(circle at top, #ffe0e8, transparent 40%),
+    #fffaf5;
+  color: #351b12;
+}
+
+.special-photo-content {
+  width: min(700px, 95vw);
+}
+
+.special-photo-content h1 {
+  font-family: "Pacifico", cursive;
+  color: #d83b59;
+  font-size: clamp(30px, 6vw, 55px);
+  margin: 20px 0 10px;
+}
+
+.special-photo-content p {
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.special-photo-frame {
+  background: white;
+  padding: 12px;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(70, 20, 20, 0.2);
+  transform: rotate(-2deg);
+  animation: photoFloat 4s infinite ease-in-out;
+  display: inline-block;
+}
+
+.special-photo-frame img {
+  width: 100%;
+  max-height: 55vh;
+  object-fit: contain;
+  border-radius: 12px;
+  display: block;
+}
+
+@keyframes photoFloat {
+  0%, 100% { transform: rotate(-2deg) translateY(0); }
+  50% { transform: rotate(2deg) translateY(-8px); }
+}
+
+/* =========================================
+   6. FUNNY PAGE
+========================================= */
+
+.funny-page {
+  background:
+    radial-gradient(circle at top left, #ffe27a, transparent 30%),
+    linear-gradient(135deg, #fff7d6, #ffe5c4);
+  color: #351b12;
+}
+
+.funny-content {
+  width: min(700px, 95vw);
+}
+
+.funny-content h1 {
+  font-family: "Pacifico", cursive;
+  font-size: clamp(35px, 7vw, 60px);
+  color: #d96b28;
+}
+
+.funny-photo {
+  background: white;
+  padding: 12px;
+  border-radius: 20px;
+  margin: 20px auto;
+  width: min(550px, 90vw);
+  box-shadow: 0 15px 40px rgba(60, 30, 10, 0.2);
+  transform: rotate(2deg);
+}
+
+.funny-photo img {
+  width: 100%;
+  max-height: 50vh;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.speech-bubble {
+  background: white;
+  display: inline-block;
+  padding: 15px 20px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+/* =========================================
+   7. LETTER
+========================================= */
+
+.letter-page {
+  background: #fff1e2;
+}
+
+.letter {
+  position: relative;
+  background: #fffaf3;
+  width: min(750px, 95vw);
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: clamp(30px, 6vw, 65px);
+  border-radius: 25px;
+  box-shadow: 0 20px 60px rgba(90, 40, 10, 0.15);
+  text-align: left;
+}
+
+.letter h1 {
+  font-family: "Pacifico", cursive;
+  font-size: clamp(25px, 5vw, 40px);
+  margin-bottom: 25px;
+}
+
+.letter p {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+.handwriting {
+  font-family: "Pacifico", cursive;
+  font-size: 24px !important;
+}
+
+.final-message {
+  font-weight: 700;
+  color: #d93255;
+}
+
+.signature {
+  font-family: "Pacifico", cursive;
+  text-align: right;
+}
+
+.letter .main-button {
+  display: block;
+  margin: 25px auto 0;
+}
+
+.letter-decoration {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: #ef4164;
+  font-size: 40px;
+}
+
+/* =========================================
+   8. WISHES
+========================================= */
+
+.wishes-page {
+  background: #111521;
+  color: white;
+}
+
+.wishes-content {
+  width: min(800px, 95vw);
+}
+
+.gift {
+  font-size: 55px;
+}
+
+.wishes-content h1 {
+  font-size: clamp(30px, 6vw, 55px);
+  margin: 10px;
+}
+
+.wishes-content > p {
+  margin-bottom: 25px;
+}
+
+.wish-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.wish {
+  min-height: 120px;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  color: #43251b;
+  transition: 0.3s;
+}
+
+.wish:hover {
+  transform: translateY(-7px) rotate(1deg);
+}
+
+.wish span {
+  font-size: 30px;
+}
+
+.wish strong {
+  font-size: 14px;
+}
+
+.shine {
+  font-family: "Pacifico", cursive;
+  font-size: 20px;
+  margin: 25px;
+}
+
+/* =========================================
+   9. FINAL
+========================================= */
+
+.final-page {
+  background:
+    radial-gradient(circle at top, #633219, transparent 40%),
+    linear-gradient(135deg, #170a04, #351609);
+  color: white;
+}
+
+.final-content {
+  max-width: 700px;
+}
+
+.big-chicken {
+  font-size: 100px;
+  animation: chickenDance 0.8s infinite alternate;
+}
+
+@keyframes chickenDance {
+  from { transform: rotate(-8deg) translateY(0); }
+  to { transform: rotate(8deg) translateY(-10px); }
+}
+
+.final-content h1 {
+  font-family: "Pacifico", cursive;
+  font-size: clamp(40px, 8vw, 75px);
+  line-height: 1.2;
+}
+
+.heart-line {
+  color: #ff506d;
+  font-size: 30px;
+  margin: 20px;
+}
+
+.birthday-button {
+  background: #fff;
+  color: #d33b56;
+  font-size: 16px;
+}
+
+/* =========================================
+   CONFETTI
+========================================= */
+
+#confetti-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.confetti {
+  position: absolute;
+  width: 9px;
+  height: 15px;
+  animation: confettiFall linear forwards;
+}
+
+@keyframes confettiFall {
+  from { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+  to { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+}
+
+/* =========================================
+   FLOATING HEARTS
+========================================= */
+
+#hearts-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 90;
+}
+
+.heart {
+  position: absolute;
+  bottom: -30px;
+  animation: heartFloat 5s linear forwards;
+  font-size: 20px;
+}
+
+@keyframes heartFloat {
+  0% { transform: translateY(0) rotate(0); opacity: 0; }
+  20% { opacity: 1; }
+  100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .page {
+    padding: 18px;
+  }
+
+  .letter {
+    padding: 30px 22px;
+  }
+
+  .letter p {
+    font-size: 14px;
+  }
+
+  .wish-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .wish {
+    min-height: 100px;
+    padding: 12px;
+  }
+
+  .gallery-content {
+    padding: 5px;
+  }
+
+  .gallery {
+    gap: 5px;
+  }
+
+  .photo-viewer {
+    width: 78vw;
+    height: 48vh;
+    padding: 7px;
+    border-radius: 17px;
+  }
+
+  .gallery-arrow {
+    width: 42px;
+    height: 42px;
+    font-size: 18px;
+  }
+
+  .thumbnail {
+    width: 65px;
+    height: 52px;
+  }
+
+  .photo-caption {
+    min-height: 80px;
+  }
+}
